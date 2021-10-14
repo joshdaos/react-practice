@@ -3,12 +3,24 @@ import { Component } from 'react';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+
+    this.state = {
+      string: 'Hello Josh'
+    }
+  }
+
+
   render() {
     return     <div className="App">
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <p>
-        hello it's josh
+        { this.state.string } <br />
+        <button onClick={() => this.setState({ string: 'Bye Josh'})}>
+          Change Text
+        </button>
       </p>
       <a
         className="App-link"
