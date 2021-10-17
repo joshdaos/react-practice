@@ -1,4 +1,7 @@
 import { Component } from 'react';
+
+import { CardList } from './components/card-list/card-list.component';
+
 import './App.css';
 
 class App extends Component {
@@ -11,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // feth returns a promise
+    // fetch returns a promise
     fetch('https://jsonplaceholder.typicode.com/users') 
     .then(response => 
       response.json())
@@ -21,10 +24,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      { // map() iterates through data and displays each indice
-        this.state.monsters.map(monster => (
-        <h1 key={monster.id}> { monster.name } </h1>))
-      }
+        <CardList name='Josh'>
+        { this.state.monsters.map(monster => (
+        <h1 key={monster.id}> { monster.name } </h1>))}
+        </CardList>
       </div>
     );
   }
