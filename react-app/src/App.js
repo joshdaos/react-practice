@@ -22,6 +22,9 @@ class App extends Component {
     .then(users => this.setState({ monsters: users }))
   }
 
+
+
+  // Never run setstate in renders because of infinite loop
   render() {
     return (
       <div className="App">
