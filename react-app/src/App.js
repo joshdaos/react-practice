@@ -13,7 +13,9 @@ class App extends Component {
     this.state = {
       monsters: [],
       searchField: ''
-    }
+    };
+
+    // this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
@@ -22,6 +24,12 @@ class App extends Component {
     .then(response => 
       response.json())
     .then(users => this.setState({ monsters: users }))
+  }
+
+
+  // arrow functions will automatically bind to the context
+  handleChange = (e) => {
+    this.setState({ searchField: e.target.value })
   }
 
   render() {
@@ -35,14 +43,9 @@ class App extends Component {
       )
     return (
       <div className="App">
-        {/* <input 
-          type='search' 
-          placeholder='Search Monsters' 
-          onChange={ e => this.setState({ searchField: e.target.value })} 
-          /> */}
           <SearchBox 
           placeholder='Search Monsters' 
-          handleChange={ e => this.setState({ searchField: e.target.value })}
+          handleChange={this.handleChange}
           />
         <CardList monsters={filteredMonsters} />
       </div>
