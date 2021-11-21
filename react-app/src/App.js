@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+// imports
 import { CardList } from './components/card-list/card-list.component';
 
 import { SearchBox } from './components/search-box/search-box.component';
